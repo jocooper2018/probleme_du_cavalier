@@ -1,19 +1,25 @@
 from globales import *
 
 
-def backtracking(echiquier: list, pos: tuple, nb_cases_visite: int) -> bool:
+def backtracking(echiquier: list, pos: tuple, nb_cases_visite: int, cases_visites: list = list()) -> tuple:
 
-    result: bool = False
+    cases_visites += [pos]
+    result = (False, cases_visites)
+    echiquier[pos[0]][pos[1]] = True
 
-    if nb_cases_visite == SIZE ** 2:
-        result = True
+    if nb_cases_visite == SIZE ** 2 - 1:
+        result = (True, result[1])
     else:
-        pass
+        new_possible_pos = get_new_possible_pos(echiquier, pos)
+        i = 0
+        while not result[0] and i < len(new_possible_pos):
+            result = backtracking(echiquier, new_possible_pos[i], nb_cases_visite + 1, result[1])
+            i += 1
 
     return result
 
 
-def get_new_possible_pos(pos: tuple) -> list:
+def get_new_possible_pos(echiquier: list, pos: tuple) -> list:
     
     if len(pos) != 2:
         raise Exception("pos doit avoir 2 valeurs: x et y")
@@ -38,6 +44,8 @@ def get_new_possible_pos(pos: tuple) -> list:
         if (pos_list[i][0] < 0) or (pos_list[i][1] < 0):
             pos_list.pop(i)
         elif (pos_list[i][0] >= 8) or (pos_list[i][1] >= 8):
+            pos_list.pop(i)
+        elif echiquier[pos_list[i][0]][pos_list[i][1]]:
             pos_list.pop(i)
         else:
             i += 1

@@ -14,8 +14,10 @@ def init_echiq():
 def main():
     """ Fonction main """
     echec = Echec()
-    echec.placerCavalier((3, 3))
-    for pos in get_new_possible_pos((3, 3)):
+    echec.placerCavalier((4, 0))
+    pos_list = backtracking(echiquier, (4, 0), 0)[1]
+    print(pos_list)
+    for pos in pos_list:
         echec.deplacerCavalier(pos)
     echec.afficher()
 
