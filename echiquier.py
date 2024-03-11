@@ -1,5 +1,6 @@
 import tkinter as tk
 from globales import SIZE
+import random
 
 class Echec(tk.Tk):
     
@@ -33,9 +34,12 @@ class Echec(tk.Tk):
         
     def deplacerCavalier(self, coord):
         x, y = coord
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
         if self.ancienne_position:
             x1, y1 = self.ancienne_position
-            self.canvas.create_line(x1 * 100 + 50, y1 * 100 + 50, x * 100 + 50, y * 100 + 50, fill="red", width=5)
+            self.canvas.create_line(x1 * 100 + 50, y1 * 100 + 50, x * 100 + 50, y * 100 + 50, fill='#{0:02x}{1:02x}{2:02x}'.format(r, g, b), width=5)
             
         self.canvas.delete("cavalier")  # Supprime l'ancien cavalier
         self.placerCavalier((x, y))  # Place le cavalier à la nouvelle position
