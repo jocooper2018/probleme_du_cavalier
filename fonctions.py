@@ -38,7 +38,7 @@ def get_new_possible_pos(echiquier: list, pos: tuple) -> list:
     if len(pos) != 2:
         raise Exception("pos doit avoir 2 valeurs: x et y")
     if not (isinstance(pos[0], int) and isinstance(pos[1], int)):
-        raise Exception("pos doit conteir des nombres entiers")
+        raise Exception("pos doit contenir des nombres entiers")
     if pos[0] < 0 or pos[0] > SIZE or pos[1] < 0 or pos[1] > SIZE:
         raise ValueError(f"les valeurs de pos doivent être comprises entre 0 et {SIZE}")
     
