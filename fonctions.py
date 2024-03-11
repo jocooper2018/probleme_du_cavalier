@@ -18,6 +18,7 @@ def backtracking(echiquier: list, pos: tuple, nb_cases_visite: int = 0, cases_vi
     # print(nb_cases_visite)
     if nb_cases_visite == SIZE ** 2:
         result = (True, result[1])
+        print("azerty")
     else:
         new_possible_pos = get_new_possible_pos(echiquier, pos)
         i = 0

@@ -14,7 +14,7 @@ echiquier = [[False for _ in range(SIZE)] for _ in range(SIZE)]
 def main():
     """ Fonction main """
     echec = Echec()
-    i, j = 0, 0
+    i, j = 4, 3
     echiquier = [[False for _ in range(SIZE)] for _ in range(SIZE)]
     echec.placerCavalier((i, j))
     result = backtracking(echiquier, (i, j))
@@ -25,6 +25,12 @@ def main():
     print(result)
     for pos in result[1]:
         echec.deplacerCavalier(pos)
+    
+    echiquier_verif = [[0 for _ in range(SIZE)] for _ in range(SIZE)]
+    for pos in result[1]:
+        echiquier_verif[pos[0]][pos[1]] += 1
+    print(echiquier_verif)
+    
     echec.afficher()
 
 
