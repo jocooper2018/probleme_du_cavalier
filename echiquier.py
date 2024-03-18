@@ -6,7 +6,7 @@ class Echec(tk.Tk):
     
     def __init__(self):
         super().__init__()
-        self.title("SAE 2.02")
+        self.title("SAÉ 2.02")
         self.geometry(f"{SIZE*100}x{SIZE*100}")
         self.cavalier = "♞"
         self.canvas = tk.Canvas(self, width=SIZE*100, height=SIZE*100)
