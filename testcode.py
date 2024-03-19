@@ -12,7 +12,7 @@ deplacements_y = [1, 2, 2, 1, -1, -2, -2, -1]
 # Vérifier si le prochain mouvement est valide
 def est_valide(x, y, echiquier):
     return x >= 0 and y >= 0 and x < SIZE and y < SIZE and echiquier[x][y] == -1
-    
+
 # Trouver un chemin hamiltonien pour le cavalier
 def trouver_chemin_hamiltonien():
     echiquier = [[-1 for _ in range(SIZE)] for _ in range(SIZE)]
