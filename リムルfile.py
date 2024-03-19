@@ -1,7 +1,7 @@
 from echiquier import Echec
 from globales import *
 import time
-start_time = time.time()
+start = time.time()
 
 def is_valid_move(board, move, visited):
     x, y = move
@@ -46,7 +46,6 @@ def knight_tour():
 
 if __name__ == "__main__":
     board = knight_tour()
-    print("--- %s seconds ---" % (time.time() - start_time))
     if board is not None:
         echec = Echec()
         echec.placerCavalier((X, Y))
@@ -61,5 +60,6 @@ if __name__ == "__main__":
                     y += 1
                 x += 1
             echec.deplacerCavalier((x-1, y-1))
-        echec.afficher()
+        tempsTotal = time.time() - start
+        echec.afficher(tempsTotal)
         
