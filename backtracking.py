@@ -59,5 +59,6 @@ if __name__ == "__main__":
                     y += 1
                 x += 1
             echec.deplacerCavalier((x-1, y-1))
-        echec.afficher()
+        tempsTotal = time.time() - start_time
+        echec.afficher(tempsTotal)
         
