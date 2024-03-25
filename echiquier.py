@@ -6,15 +6,13 @@ class Echec(tk.Tk):
     
     def __init__(self):
         super().__init__()
-        self.taille_des_cases = (min(self.winfo_screenwidth(), self.winfo_screenheight()) - 100) / SIZE
+        self.taille_des_cases = (min(self.winfo_screenwidth(), self.winfo_screenheight()) - 200) / SIZE
         self.title("SAE 2.02")
-        self.geometry(f"{int(SIZE*self.taille_des_cases)}x{int(SIZE*self.taille_des_cases + 30)}")
+        self.geometry(f"{int(SIZE*self.taille_des_cases)}x{int(SIZE*self.taille_des_cases + 41)}") # 41px est la hauteur du texte qui indique le temps d'execution
         self.cavalier = "♞"
-        self.text = tk.Label(text="")
         self.canvas = tk.Canvas(self, width=SIZE*self.taille_des_cases, height=SIZE*self.taille_des_cases)
         self.ancienne_position = None # Variable pour stocker l'ancienne position du cavalier
         self.dessineEchec()
-        print(self.taille_des_cases)
     
     def dessineEchec(self):
         colors = ["white", "gray"]
@@ -48,7 +46,7 @@ class Echec(tk.Tk):
         self.ancienne_position = coord
         
     def afficher(self, temps):
-        self.text = tk.Label(text="Temps d'exécution : %.2f secondes" % temps)
+        self.text = tk.Label(text="Temps d'exécution : %.3f secondes" % temps, font=("sans-serif", 20))
         self.text.pack()
         self.canvas.pack()
         self.mainloop()

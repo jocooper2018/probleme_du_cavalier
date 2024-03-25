@@ -1,6 +1,5 @@
 from echiquier import Echec
 import time
-start_time = time.time()
 
 # Taille de l'échiquier
 from globales import *
@@ -42,9 +41,10 @@ def trouver_chemin_util(x, y, etape, echiquier, dx, dy):
 
 # Appeler la fonction pour trouver le chemin hamiltonien
 trouver_chemin_hamiltonien()
-if __name__ == "__main__":
+if __name__ == "__main__": 
+    start_time = time.time()
     board = trouver_chemin_hamiltonien()
-    print("--- %s seconds ---" % (time.time() - start_time))
+    tempsTotal = time.time() - start_time
     if board is not None:
         echec = Echec()
         echec.placerCavalier((X, Y))
@@ -59,6 +59,5 @@ if __name__ == "__main__":
                     y += 1
                 x += 1
             echec.deplacerCavalier((x-1, y-1))
-        tempsTotal = time.time() - start_time
         echec.afficher(tempsTotal)
         
