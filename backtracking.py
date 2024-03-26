@@ -40,7 +40,6 @@ def trouver_chemin_util(x, y, etape, echiquier, dx, dy):
     return False
 
 # Appeler la fonction pour trouver le chemin hamiltonien
-trouver_chemin_hamiltonien()
 if __name__ == "__main__": 
     start_time = time.time()
     board = trouver_chemin_hamiltonien()
