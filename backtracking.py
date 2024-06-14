@@ -44,6 +44,7 @@ if __name__ == "__main__":
     start_time = time.time()
     board = trouver_chemin_hamiltonien()
     tempsTotal = time.time() - start_time
+    # Affichage
     if board is not None:
         echec = Echec()
         echec.placerCavalier((X, Y))
